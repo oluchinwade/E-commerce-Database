@@ -31,8 +31,10 @@ def create_app(test_config=None):
     db.init_app(app)
     migrate = Migrate(app, db)
 
-    # from .api import users, tweets
-    # app.register_blueprint(users.bp)
-    # app.register_blueprint(tweets.bp)
+    from .api import user, product,vendor, order
+    app.register_blueprint(user.bp)
+    app.register_blueprint(product.bp)
+    app.register_blueprint(vendor.bp)
+    app.register_blueprint(order.bp)
 
     return app
